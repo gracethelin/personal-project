@@ -5,14 +5,12 @@ import Nav from './components/Nav/Nav'
 import routes from './routes'
 import { withRouter } from "react-router-dom";
 import Header from './components/Header/Header'
-import {Provider } from 'react-redux'
-import store from './redux/store'
 
 import './App.css';
 
 function App(props) {
   return (
-    <Provider store={store}>
+   
     <div className="App">
       
       {props.location.pathname === '/' ? 
@@ -26,7 +24,7 @@ function App(props) {
     }
    
       
-    </div></Provider>
+    </div>
   );
 }
 
