@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import {login, register} from '../../redux/userReducer'
-import {connect} from 'react-redux'
+import { login, register } from '../../redux/userReducer'
+import { connect } from 'react-redux'
 
 
 class Auth extends Component {
@@ -31,7 +31,7 @@ class Auth extends Component {
             const userId = res.data.user_id
             // const profilePic  = res.data.profilePic
             this.props.login(
-                email, userId, 
+                email, userId,
             )
             this.props.history.push("/Dashboard")
         }).catch(err => alert(err))
@@ -71,4 +71,4 @@ class Auth extends Component {
     }
 }
 
-export default connect(null, {login, register})(Auth);
+export default connect(null, { login, register })(Auth);

@@ -1,7 +1,25 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  background-color: rgb(110, 122, 122);
+}
+
+.search{
+  width: 280px;
+  height: 50px;
+
 }
 
 .header{
-  background-color: aqua;
+  background-color: rgb(37, 33, 46);
+  color: aliceblue;
 }
+
+.dropdownImage{
+  height: 70px;
+  width: 70px
+}
+
+.toBuy{
+  text-align: center;
+}
+/*# sourceMappingURL=App.css.map */

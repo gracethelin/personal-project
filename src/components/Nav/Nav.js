@@ -20,7 +20,9 @@ class Nav extends Component {
     render() {
         return (
             <div>
-                <img src='https://cdn.dribbble.com/users/1182636/screenshots/3857875/tomato-01.png' onClick={this.handleClick} />
+                <img 
+                className='dropdownImage'
+                src='https://cdn.dribbble.com/users/146798/screenshots/6218681/doughnut-dribbble1_4x.jpg' onClick={this.handleClick} />
 
                 {this.state.dropdown ?
                     (

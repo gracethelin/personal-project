@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import Nav from './components/Nav/Nav'
 import savedRecipes from './components/Dashboard/savedRecipes/savedRecipes'
 import recommendedRecipes from './components/Dashboard/recommendedRecipies/recommendedRecipes'
-import toBuy from './components/Dashboard/toBuy/toBuy'
+import ToBuy from './components/Dashboard/toBuy/ToBuy'
 
 export default (
     <Switch>
@@ -15,6 +15,6 @@ export default (
         
         <Route path='/savedRecipes' component={savedRecipes}/>
         <Route path='/recommended' component={recommendedRecipes} />
-        <Route path='/toBuy' component={toBuy} />
+        <Route path='/toBuy' component={ToBuy} />
     </Switch>
 )
