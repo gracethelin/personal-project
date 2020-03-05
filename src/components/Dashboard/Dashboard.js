@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Header from '../Header/Header'
 import axios from 'axios'
 import ToBuy from './toBuy/ToBuy'
+import {connect} from "react-redux"
+import {toBuy} from '../../redux/toBuyReducer'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -9,7 +11,7 @@ class Dashboard extends Component {
 
         this.state = {
             search: '',
-            ingredient: ''
+            
         }
     }
   
@@ -47,4 +49,10 @@ class Dashboard extends Component {
 }
 
 
-export default Dashboard
+const mapStateToProps = reduxState => {
+    const {ingredient} = reduxState
+    return {ingredient}
+    }
+    
+    
+    export default connect(mapStateToProps, {toBuy})(Dashboard)

@@ -4,6 +4,7 @@ const initialState = {
     email: '',
     profilePic: '',
     userId: 0
+    
 }
 
 const CHECK_USER = "CHECK_USER"

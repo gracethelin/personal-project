@@ -43,3 +43,17 @@ app.get(`/api/recipes`, ctrl.search)
 app.post(`/api/recipes`, ctrl.addRecipe)
 
 app.post(`/api/toBuy`, ctrl.addIngredient)
+app.delete(`/api/toBuy/:id`, ctrl.deleteProduct)
+app.get(`/api/toBuy`, ctrl.getIngredients)
+app.put(`/api/toBuy/:id`, ctrl.editIngredient)
+
+// {...this.state.isEditing ? (<div>
+//     //             <input onChange={this.handleChange} />
+//     //             <button onClick={() => {
+//                     this.props.addIngredient()
+//                     this.toggleEdit()
+
+//                 }}>SAVE</button>
+//             </div>) : (<p onDoubleClick={this.toggleEdit}> {this.state.ingredients.list_name} </p>)}
+//         /><button onClick={() => { this.addIngredient(this.state.userInput) }}>Add Ingredient</button>
+//     </div>
