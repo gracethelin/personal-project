@@ -5,7 +5,7 @@ import Auth from './components/Auth/Auth'
 import Dashboard from './components/Dashboard/Dashboard'
 import Nav from './components/Nav/Nav'
 import savedRecipes from './components/Dashboard/savedRecipes/savedRecipes'
-import recommendedRecipes from './components/Dashboard/recommendedRecipies/recommendedRecipes'
+import RecommendedRecipes from './components/Dashboard/recommendedRecipies/RecommendedRecipes'
 import ToBuy from './components/Dashboard/toBuy/ToBuy'
 
 export default (
@@ -14,7 +14,7 @@ export default (
         <Route path ='/Dashboard' component={Dashboard} />
         
         <Route path='/savedRecipes' component={savedRecipes}/>
-        <Route path='/recommended' component={recommendedRecipes} />
+        <Route path='/recommended' component={RecommendedRecipes} />
         <Route path='/toBuy' component={ToBuy} />
     </Switch>
 )

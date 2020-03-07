@@ -6,6 +6,7 @@ const express = require("express"),
     ctrl = require('./controllers/controller'),
     //   checkUser = require('./middleware/checkUser'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
+    ctrlRandom = require(`./controllers/randomRecipes`)
 
 const app = express();
 
@@ -47,13 +48,5 @@ app.delete(`/api/toBuy/:id`, ctrl.deleteProduct)
 app.get(`/api/toBuy`, ctrl.getIngredients)
 app.put(`/api/toBuy/:id`, ctrl.editIngredient)
 
-// {...this.state.isEditing ? (<div>
-//     //             <input onChange={this.handleChange} />
-//     //             <button onClick={() => {
-//                     this.props.addIngredient()
-//                     this.toggleEdit()
+app.get(`/api/random`, ctrlRandom.randomRecipes)
 
-//                 }}>SAVE</button>
-//             </div>) : (<p onDoubleClick={this.toggleEdit}> {this.state.ingredients.list_name} </p>)}
-//         /><button onClick={() => { this.addIngredient(this.state.userInput) }}>Add Ingredient</button>
-//     </div>

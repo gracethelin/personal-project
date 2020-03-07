@@ -4,7 +4,7 @@ export default class savedRecipes extends Component {
     render() {
         return (
             <div>
-                savedRecipes
+                <h1>My Recipes</h1>
             </div>
         )
     }

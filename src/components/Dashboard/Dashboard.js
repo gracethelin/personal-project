@@ -13,8 +13,10 @@ class Dashboard extends Component {
             search: '',
             
         }
-    }
+    }   
   
+    
+
     addIngredient = (ingredient) => {
         console.log(`hit add`)
         axios.post(`/api/toBuy`, {ingredient}).then(res => {
@@ -42,7 +44,7 @@ class Dashboard extends Component {
                     placeholder='Search Recipe'
                     onChange={this.isSearching}
                 />
-                <ToBuy addIngredient={this.addIngredient}/>
+               
             </div>
         )
     }

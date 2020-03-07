@@ -40,7 +40,9 @@ module.exports = {
     editIngredient: (req, res) => {
         const db = req.app.get('db')
         const {ingredient} = req.body
+        console.log(req.body)
         const {id} = req.params
+     
 
         db.edit_ingredient([ingredient, id]).then(ingredients => {
             res.status(200).send(ingredients)
