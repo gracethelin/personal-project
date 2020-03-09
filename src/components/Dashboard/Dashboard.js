@@ -23,14 +23,17 @@ class Dashboard extends Component {
             .then(res => {
                 console.log('res', res)
                 this.setState({
-                    listItems: [...this.state.listItems, res.data]
+                    listItems: res.data
                 })
             }).catch(err =>
                 console.log('err', err)
             )
     }
 
+    
+
     render() {
+        console.log(this.state)
         return (
             <div>
                 <h1>Dashboard</h1>
@@ -40,7 +43,16 @@ class Dashboard extends Component {
                     onChange={(e) => this.isSearching(e)}
                 />
                 <div>
-                    list items
+                    
+                    {this.state.listItems.map(e => {
+                        console.log(e)
+                        return <div className='displayed-recipes'>
+                             {e.recipe_name}
+                             
+                        </div>   
+                        
+                    })}
+
                 </div>
             </div>
         )

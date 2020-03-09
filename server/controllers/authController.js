@@ -5,7 +5,7 @@ module.exports = {
         const db = req.app.get('db')
         const { email, password } = req.body
 
-        let user = await db.check_user(email);
+        let user = await db.check_user({email});
         user = user[0];
         if (!user) {
             return res.status(400).send("Email not found");
@@ -15,8 +15,10 @@ module.exports = {
         if (authenticated) {
             delete user.user_password;
             req.session.user = user;
+            
             return res.status(202).send(req.session.user);
         } else {
+         
             return res.status(400).send("Incorrect email or password");
         }
     },
@@ -24,8 +26,10 @@ module.exports = {
     register: async (req, res) => {
         const db = req.app.get('db')
         const { email, password } = req.body
-
-        let user = await db.check_user(email)
+       
+       
+        let user = await db.check_user({email}) 
+      
         user = user[0]
         if (user) {
             return res.status(400).send('Email already exists')

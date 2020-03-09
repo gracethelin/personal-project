@@ -11,15 +11,17 @@ export default class Ingre extends Component {
             userInput: ''
         }
     }
-    // componentDidUpdate = (oldProps) => {
-    //     if(oldProps !== this.props){
-    //         this.setState({
-    //             userInput: this.props.userInput,
-    //             list_name: this.props.ingredients.list_name,
-    //             list_id: this.props.ingredients.list_id
-    //         })
-    //     }
-    // }
+
+    componentDidUpdate = (oldProps) => {
+        if(oldProps !== this.props){
+           
+            this.setState({
+                userInput: this.state.userInput,
+                list_name: this.props.ingredients.list_name,
+                list_id: this.props.ingredients.list_id
+            })
+        }
+    }
 
     toggleHandle = () => {
         this.setState({

@@ -24,24 +24,25 @@ class Auth extends Component {
     login = () => {
         console.log('hit login')
         const { email, password } = this.state
-
         axios.post(`/api/login`, { email, password }).then(res => {
-            console.log("hit long pt 2")
-            const email = res.data.email
+            console.log(".then login")
+            const email = res.data.user_email
             const userId = res.data.user_id
             // const profilePic  = res.data.profilePic
             this.props.login(
-                email, userId,
+                email, userId
             )
             this.props.history.push("/Dashboard")
         }).catch(err => alert(err))
 
     }
 
+ 
+
     register = () => {
         console.log(`hit register`)
-        const { username, password } = this.state
-        axios.post(`/api/register`, { username, password }).then((res) => {
+        const { email, password } = this.state
+        axios.post(`/api/register`, { email, password }).then((res) => {
             this.props.register(
                 res.data
             )
@@ -62,6 +63,7 @@ class Auth extends Component {
                     <input className='login'
                         placeholder='Enter Password'
                         name='password'
+                        type="password"
                         onChange={this.handleChange}
 
                     />

@@ -16,7 +16,7 @@ export function login(email, password) {
 
     let action = {
         type: LOGIN,
-        payload: axios.post(`/api/login`, { email, password })
+        payload: {email, password}
     }
 
     return action
@@ -34,7 +34,7 @@ export function checkUser() {
 export function register(email, password) {
     let action = {
         type: REGISTER,
-        payload: axios.post(`/api/register`, { email, password })
+        payload: {email, password}
     }
 
     return action

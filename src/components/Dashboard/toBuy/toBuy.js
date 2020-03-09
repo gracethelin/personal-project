@@ -122,7 +122,7 @@ class ToBuy extends Component {
                        
                         return <Ingre
                             key={e.list_id}
-                
+                            ingredients = {this.state.ingredients}
                             editIngredient={this.editIngredient}
                             e={e}
                             deleteIngredient={this.deleteIngredient}

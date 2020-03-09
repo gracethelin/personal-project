@@ -4,10 +4,11 @@ const express = require("express"),
     session = require("express-session"),
     authCtrl = require("./controllers/authController"),
     ctrl = require('./controllers/controller'),
+    
     //   checkUser = require('./middleware/checkUser'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
     ctrlRandom = require(`./controllers/randomRecipes`)
-
+ 
 const app = express();
 
 app.use(express.json());
@@ -50,3 +51,4 @@ app.put(`/api/toBuy/:id`, ctrl.editIngredient)
 
 app.get(`/api/random`, ctrlRandom.randomRecipes)
 
+app.get(`/api/signs3`, ctrl.amazonS3)
