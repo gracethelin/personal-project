@@ -20,16 +20,6 @@ class ToBuy extends Component {
         this.getIngredients()
     }
 
-    componentDidUpdate = (oldProps) => {
-        if(oldProps !== this.props){
-            this.setState({
-                userInput: this.userInput,
-                list_name: this.ingredients.list_name,
-                list_id: this.ingredients.list_id
-            })
-        }
-    }
-
     getIngredients = () => {
         axios.get(`/api/toBuy`).then(res => {
             this.setState({
@@ -39,9 +29,7 @@ class ToBuy extends Component {
     }
 
     addIngredient = (ingredient) => {
-        console.log(`hit add`)
         axios.post(`/api/toBuy`, { ingredient }).then(res => {
-            console.log('mehh')
             this.setState({
                 ingredients: res.data
             })
@@ -101,15 +89,15 @@ class ToBuy extends Component {
 
         return (
             <div className='toBuy'>
-
-                <ul>Ingredients To Buy:
+                <h1>Ingredients to buy</h1>
+                <ul>
                     <div>
                         <input
                             className="toDoAdd"
                             placeholder='Enter Ingredient'
                             value={this.state.userInput}
                             onChange={e => this.inputIngredient(e.target.value)}
-                        /><button onClick={() => { this.addIngredient(this.state.userInput) }}>Add Ingredient</button>
+                        /><button className="toDoButton" onClick={() => { this.addIngredient(this.state.userInput) }}><p>+</p></button>
                     </div>
                 </ul>
 

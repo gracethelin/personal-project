@@ -1,25 +1,288 @@
 body {
+  font-family: 'Inter', sans-serif;
+}
+
+.header {
+  background-color: #352C43;
+  height: 240px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: white;
+}
+
+.header .header-text {
+  padding-bottom: 30px;
+}
+
+.header p {
+  color: #A098AC;
+  margin: 6px 0px;
+}
+
+.header h1 {
+  color: white;
+  font-weight: 300;
+  margin: 0px;
+}
+
+.header img {
+  width: 200px;
+}
+
+.header button {
+  background-color: #51495E;
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 1px;
+  margin-right: 12px;
+  -webkit-transition: .15s ease;
+  transition: .15s ease;
+  cursor: pointer;
+}
+
+.header .container {
+  padding: 0px 40px;
+}
+
+.header button:hover {
+  background-color: #665D74;
+}
+
+.header button:focus {
+  outline: none;
+}
+
+.header .nav-links {
+  padding-bottom: 16px;
+}
+
+.content-container {
+  padding: 20px 40px;
+  color: #4A4650;
+}
+
+.content-container h1 {
+  font-size: 28px;
+}
+
+.content-container input {
+  background-color: #FAFAFA;
+  border: 1px solid #DFDFDF;
+  border-radius: 4px;
+  font-size: 20px;
+  width: 350px;
+  padding: 10px;
+}
+
+.content-container input:focus {
+  outline: none;
+}
+
+.content-container ul {
+  padding: 0px;
+}
+
+.content-container ul li {
+  list-style-type: none;
+  padding: 20px 12px;
+  border: 1px solid #DFDFDF;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 2px 2px #dadada;
+          box-shadow: 0px 2px 2px #dadada;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.content-container ul .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content-container ul .delete-button {
+  background-color: #FAD3D3;
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #EB4343;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 1px;
+  -webkit-transition: .15s ease;
+  transition: .15s ease;
+  cursor: pointer;
+}
+
+.content-container ul .delete-button:hover {
+  background-color: #F5C1C1;
+  color: #DF2020;
+}
+
+.content-container ul .edit-button {
+  background-color: #E8E8E8;
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #9C9C9C;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 1px;
+  margin-right: 8px;
+  -webkit-transition: .15s ease;
+  transition: .15s ease;
+  cursor: pointer;
+}
+
+.content-container ul .edit-button:hover {
+  background-color: #DEDEDE;
+}
+
+.content-container .toDoButton {
+  background-color: #E8E8E8;
+  border-radius: 100px;
+  padding: 12px;
+  margin-left: 10px;
+  font-size: 30px;
+  line-height: 20px;
+  color: #9C9C9C;
+  height: 45px;
+  width: 45px;
+  text-transform: uppercase;
+  border: none;
+  margin-right: 8px;
+  -webkit-transition: .15s ease;
+  transition: .15s ease;
+  cursor: pointer;
+}
+
+.content-container .toDoButton p {
+  margin-top: -2px;
+}
+
+.content-container .toDoButton:hover {
+  background-color: #DEDEDE;
+}
+
+.login-screen {
+  background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3331&q=80");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login-screen .login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  float: right;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.login-screen .login-container input {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 2px #e6e6e6;
+          box-shadow: 0px 1px 2px #e6e6e6;
+  border-radius: 4px;
+  font-size: 20px;
+  width: 350px;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.login-screen .login-container input:focus {
+  outline: none;
+}
+
+.login-screen .login-container .login-button {
+  background-color: #352C43;
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  letter-spacing: 1px;
+  margin-right: 8px;
+  -webkit-transition: .15s ease;
+  transition: .15s ease;
+  cursor: pointer;
+}
+
+.login-screen .login-container .login-button:hover {
+  background-color: #534864;
+}
+
+.login-screen .login-container .register-button {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 100px;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-right: 8px;
+  -webkit-transition: .15s ease;
+  transition: .15s ease;
+  cursor: pointer;
+}
+
+.login-screen .login-container .register-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media only screen and (min-width: 960px) {
+  .login-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 50%;
+    float: right;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100%;
+  }
+}
+
+body {
   margin: 0;
-  background-color: rgb(110, 122, 122);
-}
-
-.search{
-  width: 280px;
-  height: 50px;
-
-}
-
-.header{
-  background-color: rgb(37, 33, 46);
-  color: aliceblue;
-}
-
-.dropdownImage{
-  height: 70px;
-  width: 70px
-}
-
-.toBuy{
-  text-align: center;
 }
 /*# sourceMappingURL=App.css.map */

@@ -51,21 +51,25 @@ class Auth extends Component {
 
     render() {
         return (
-            <div>
-                <input className="login"
-                    placeholder="Enter Email"
-                    name='email'
-                    onChange={this.handleChange}
+            <div className="login-screen">
+                <div className="login-container">
+                    <input className="login"
+                        placeholder="Enter Email"
+                        name='email'
+                        onChange={this.handleChange}
 
-                />
-                <input className='login'
-                    placeholder='Enter Password'
-                    name='password'
-                    onChange={this.handleChange}
+                    />
+                    <input className='login'
+                        placeholder='Enter Password'
+                        name='password'
+                        onChange={this.handleChange}
 
-                />
-                <button onClick={this.login}>Login</button>
-                <button onClick={this.register}>Register</button>
+                    />
+                    <div className="button-container">
+                    <button className="login-button" onClick={this.login}>Login</button>
+                    <button className="register-button" onClick={this.register}>Register</button>
+                    </div>
+                </div>
             </div>
         )
     }

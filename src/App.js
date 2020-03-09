@@ -20,7 +20,7 @@ function App(props) {
           </div>
       ) : 
        <div>
-         <Header/>{routes} </div>
+         <Header/><div className="content-container">{routes}</div> </div>
     }
    
       

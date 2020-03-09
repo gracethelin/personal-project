@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import Header from '../Header/Header'
 import axios from 'axios'
-import ToBuy from './toBuy/ToBuy'
-import {connect} from "react-redux"
-import {toBuy} from '../../redux/toBuyReducer'
+import { connect } from "react-redux"
+import { toBuy } from '../../redux/toBuyReducer'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -11,40 +9,39 @@ class Dashboard extends Component {
 
         this.state = {
             search: '',
-            
+            listItems: []
         }
-    }   
-  
-    
-
-    addIngredient = (ingredient) => {
-        console.log(`hit add`)
-        axios.post(`/api/toBuy`, {ingredient}).then(res => {
-            this.setState({
-                ingredient: res.data
-            })
-        })
     }
 
-    isSearching = () => {
-        axios.get(`api/recipes`).then(
-            (res) => {
+    isSearching = (e) => {
+        
+        this.setState({
+            search: e.target.value
+        })
+
+        axios.get(`/api/recipesSearch`)
+            .then(res => {
+                console.log('res', res)
                 this.setState({
-                    isSearching: res.data
+                    listItems: [...this.state.listItems, res.data]
                 })
-            }
-        )
+            }).catch(err =>
+                console.log('err', err)
+            )
     }
 
     render() {
         return (
-            <div>Dashboard
-              <input
+            <div>
+                <h1>Dashboard</h1>
+                <input
                     className="search"
                     placeholder='Search Recipe'
-                    onChange={this.isSearching}
+                    onChange={(e) => this.isSearching(e)}
                 />
-               
+                <div>
+                    list items
+                </div>
             </div>
         )
     }
@@ -52,9 +49,9 @@ class Dashboard extends Component {
 
 
 const mapStateToProps = reduxState => {
-    const {ingredient} = reduxState
-    return {ingredient}
-    }
-    
-    
-    export default connect(mapStateToProps, {toBuy})(Dashboard)
+    const { ingredient } = reduxState
+    return { ingredient }
+}
+
+
+export default connect(mapStateToProps, { toBuy })(Dashboard)

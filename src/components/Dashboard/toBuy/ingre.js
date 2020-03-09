@@ -11,15 +11,15 @@ export default class Ingre extends Component {
             userInput: ''
         }
     }
-    componentDidUpdate = (oldProps) => {
-        if(oldProps !== this.props){
-            this.setState({
-                userInput: this.props.userInput,
-                list_name: this.props.ingredients.list_name,
-                list_id: this.props.ingredients.list_id
-            })
-        }
-    }
+    // componentDidUpdate = (oldProps) => {
+    //     if(oldProps !== this.props){
+    //         this.setState({
+    //             userInput: this.props.userInput,
+    //             list_name: this.props.ingredients.list_name,
+    //             list_id: this.props.ingredients.list_id
+    //         })
+    //     }
+    // }
 
     toggleHandle = () => {
         this.setState({
@@ -58,10 +58,12 @@ export default class Ingre extends Component {
                     </div>
             ) : (
                 <li key={this.props.e.list_id}>
-                    {this.props.e.list_name}
-                    <button
+                    <p>{this.props.e.list_name}</p>
+                    <div className="button-container">                
+                    <button className="edit-button" onClick={this.toggleHandle}>Edit</button>
+                    <button className="delete-button"
                         onClick={() => { this.props.deleteIngredient(this.props.e.list_id) }}>Delete</button>
-                    <button onClick={this.toggleHandle}>Edit</button>
+                    </div>
                 </li>
             )
 

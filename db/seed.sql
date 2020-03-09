@@ -17,8 +17,6 @@ CREATE TABLE savedRecipes(
     FOREIGN KEY user_id REFERENCES users
 )
 
-
-
 SELECT * FROM savedRecipes
 JOIN recipes ON savedRecipes.recipe_id = recipe_id 
 WHERE user_id = $1

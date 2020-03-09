@@ -1,10 +1,13 @@
 module.exports = {
-    search: async (req, res) => {
+    
+    search: (req, res) => {
         const db = req.app.get('db')
 
-       const recipes = await db.check_recipe([ingredient])
+        const recipes = db.check_recipe([ingredient])
         const myRecipe = recipes.map()
-       },
+    
+        return recipes;
+    },
     
 
     addRecipe: async (req, res) => {
@@ -13,7 +16,7 @@ module.exports = {
         await db.add_recipe()
     },
 
-    addIngredient:  (req, res) => {
+    addIngredient: (req, res) => {
         const db = req.app.get('db')
         const {ingredient} = req.body
         db.add_ingredient([ingredient]).then(ingredients => {
@@ -47,6 +50,6 @@ module.exports = {
         db.edit_ingredient([ingredient, id]).then(ingredients => {
             res.status(200).send(ingredients)
         }).catch(err => console.log(err))
-
     }
+
 }

@@ -7,7 +7,7 @@ class Nav extends Component {
         super(props)
 
         this.state = {
-            dropdown: false
+            dropdown: true
         }
     }
 
@@ -20,13 +20,13 @@ class Nav extends Component {
     render() {
         return (
             <div>
-                <img 
+                {/* <img 
                 className='dropdownImage'
-                src='https://cdn.dribbble.com/users/146798/screenshots/6218681/doughnut-dribbble1_4x.jpg' onClick={this.handleClick} />
+                src='https://cdn.dribbble.com/users/146798/screenshots/6218681/doughnut-dribbble1_4x.jpg' onClick={this.handleClick} /> */}
 
                 {this.state.dropdown ?
                     (
-                        <div>
+                        <div className="nav-links">
                             <Link to='/Dashboard'><button>Home</button></Link>
                             <Link to='/savedRecipes' ><button>My Saved Recipes</button></Link>
                             <Link to='/recommended'><button>Recommended Recipes</button></Link>

@@ -40,7 +40,7 @@ app.post(`/api/register`, authCtrl.register)
 app.post(`/api/logout`, authCtrl.logout)
 
 
-app.get(`/api/recipes`, ctrl.search)
+app.get(`/api/recipesSearch`, ctrl.search)
 app.post(`/api/recipes`, ctrl.addRecipe)
 
 app.post(`/api/toBuy`, ctrl.addIngredient)
