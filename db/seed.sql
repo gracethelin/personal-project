@@ -6,6 +6,13 @@ CREATE TABLE recipes (
     recipe_img VARCHAR(300)
 )
 
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    user_email VARCHAR(250),
+    user_password VARCHAR(250),
+    profile_pic VARCHAR(400)
+)
+
 CREATE TABLE toBuy (
     list_id SERIAL PRIMARY KEY,
     list_name VARCHAR(250),
@@ -13,10 +20,9 @@ CREATE TABLE toBuy (
 )
 
 CREATE TABLE savedRecipes(
-    FOREIGN KEY recipe_id REFERENCES recipes
-    FOREIGN KEY user_id REFERENCES users
+    recipe_id INT REFERENCES recipes(recipe_id),
+     user_id INT REFERENCES users(user_id)
 )
 
-SELECT * FROM savedRecipes
-JOIN recipes ON savedRecipes.recipe_id = recipe_id 
-WHERE user_id = $1
+
+

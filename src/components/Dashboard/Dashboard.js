@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from "react-redux"
 import { toBuy } from '../../redux/toBuyReducer'
+import SavedRecipes from './savedRecipes/savedRecipes'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class Dashboard extends Component {
     
 
     render() {
-        console.log(this.state)
+        
         return (
             <div>
                 <h1>Dashboard</h1>
@@ -45,15 +46,19 @@ class Dashboard extends Component {
                 <div>
                     
                     {this.state.listItems.map(e => {
-                        console.log(e)
-                        return <div className='displayed-recipes'>
+                        return <div className='displayed-recipes'
+                        key={e.recipe_id}
+                        >
+                            
                              {e.recipe_name}
-                             
+                             <button>Save</button>
                         </div>   
                         
                     })}
 
                 </div>
+             
+            
             </div>
         )
     }

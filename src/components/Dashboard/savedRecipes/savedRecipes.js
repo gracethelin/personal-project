@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+
 
 import axios from 'axios';
 import { v4 as randomString } from 'uuid';
@@ -10,8 +12,21 @@ class savedRecipes extends Component {
     super();
     this.state = {
       isUploading: false,
-      url: 'http://via.placeholder.com/450x450',
+      url: '',
+      savedRecipes: []
     };
+  }
+
+  componentDidUpdate = (oldProps) => {
+    const {userId} = this.props.user
+    if(oldProps !== this.props || userId){
+    axios.get(`/api/getAllSavedRecipes`, {userId}).then(res => {
+      console.log(res)
+      this.setState({
+        savedRecipes: res.data
+      })
+      
+    })}
   }
 
   getSignedRequest = ([file]) => {
@@ -63,10 +78,15 @@ class savedRecipes extends Component {
   };
 
   render() {
+    console.log(this.props)
+    console.log(this.state.savedRecipes)
     const { url, isUploading } = this.state;
     return (
       <div className="App">
-        <h1>Upload</h1>
+      <h1>{this.props.user.email}'s Saved Recipes</h1>
+      {this.state.savedRecipes.map(e => {
+       return  <div>{e.recipe_name}</div>
+      })}
         <h1>{url}</h1>
         <img src={url} alt="" width="450px" />
 
@@ -80,7 +100,7 @@ class savedRecipes extends Component {
             marginTop: 100,
             borderColor: 'rgb(102, 102, 102)',
             borderStyle: 'dashed',
-            borderRadius: 5,
+            borderRadius: 120,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -89,11 +109,17 @@ class savedRecipes extends Component {
           accept="image/*"
           multiple={false}
         >
-          {isUploading ? <GridLoader /> : <p>Drop File or Click Here</p>}
+          {isUploading ? <GridLoader /> : <p>Click to Upload Profile Picture</p>}
         </Dropzone>
       </div>
     );
   }
 }
+
+const mapStateToProps = reduxState => {
+
+  const {user} = reduxState
+  return {user}
+};
     
-export default savedRecipes
+export default connect(mapStateToProps)(savedRecipes)

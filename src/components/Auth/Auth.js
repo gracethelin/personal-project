@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { login, register } from '../../redux/userReducer'
+import Dashboard from '../Dashboard/Dashboard'
 import { connect } from 'react-redux'
 
 
@@ -72,6 +73,8 @@ class Auth extends Component {
                     <button className="register-button" onClick={this.register}>Register</button>
                     </div>
                 </div>
+             
+                />
             </div>
         )
     }

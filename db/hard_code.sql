@@ -121,23 +121,7 @@ VALUES ('Crepes', '1 cup all-purpose flour, 2 eggs, 1/2 cup milk, 1/2 cup water,
 Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each crepe. Tilt the pan with a circular motion so that the batter coats the surface evenly.
 Cook the crepe for about 2 minutes, until the bottom is light brown. Loosen with a spatula, turn and cook the other side. Serve hot.', 'https://littlespicejar.com/wp-content/uploads/2019/05/Easy-Blender-Crepes-11.jpg' )
 
-INSERT INTO recipes (recipe_name, recipe_ingredients, recipe_instruction, recipe_img )
-VALUES ('GRILLED CHICKEN', '1/4 cup balsamic vinegar,
-Juice of 1 lemon,
-2 tablespoons olive oil,
-2 tablespoons Dijon mustard,
-2 tablespoons brown sugar packed,
-1 tablespoon Worcestershire sauce,
-2 cloves garlic minced,
-1/2 teaspoon dried thyme,
-1/2 teaspoon dried oregano,
-1/4 teaspoon dried rosemary,
-Kosher salt and freshly ground black pepper to taste,
-4 boneless skinless chicken breasts,
-2 tablespoons chopped fresh parsley leaves', 'In a medium bowl, whisk together balsamic vinegar, lemon juice, olive oil, Dijon, brown sugar, Worcestershire, garlic, thyme, oregano and rosemary; season with salt and pepper, to taste. Reserve 1/4 cup and set aside.
-In a gallon size Ziploc bag or large bowl, combine balsamic vinegar mixture and chicken; marinate for at least 1 hour to overnight, turning the bag occasionally. Drain the chicken from the marinade.
-Preheat grill to medium high heat. Add chicken to grill and cook, flipping once and basting with reserved 1/4 cup marinade until cooked through, about 5-6 minutes on each side.
-Serve immediately, garnished with parsley, if desired.', 'https://s23209.pcdn.co/wp-content/uploads/2015/06/Easy-Grilled-Chicken-1.jpg')
+
 
 INSERT INTO recipes (recipe_name, recipe_ingredients, recipe_instruction, recipe_img )
 VALUES (
@@ -169,3 +153,73 @@ Blend the sour cream and cream of chicken soup in a bowl; pour half of the soup 
  Step 4
 Bake in the preheated oven until cheese has melted and the sauce is bubbly, 25 to 30 minutes.', 'https://www.yellowblissroad.com/wp-content/uploads/2019/09/Poppy-Seed-Chicken-17.jpg')
 
+
+
+
+
+INSERT INTO recipes (recipe_name, recipe_ingredients, recipe_instruction, recipe_img )
+VALUES ('Funneral potatoes', '30 ounces frozen hash browns -diced or shredded will work- THAWED,
+2 cups sour cream,
+10.5 ounce can cream of chicken soup (or homemade),
+10 Tablespoons butter -divided- melted,
+1 teaspoon salt,
+1/4 teaspoon freshly ground black pepper,
+1 teaspoon dried minced onion,
+2 cups shredded cheddar cheese,
+2 cups corn flakes cerea', 
+'Allow potatoes to thaw in your fridge overnight, or spread them on a baking sheet and warm them in the oven at 200 degrees for about 20 minutes, until thawed.
+Preheat oven to 350 degrees F.
+Combine sour cream, cream of chicken soup, 6 Tablespoons of melted butter, salt, pepper and dried onion in a bowl. Mix well. 
+Add potatoes and shredded cheese and stir to combine. Spoon mixture into a single layer in a 9x13'' pan.
+Add cornflakes to a large ziplock bag and crush gently with your hands or a rolling pin. 
+Add remaining 4 tablespoons of melted butter to the crushed cornflakes and combine well. Sprinkle mixture over potatoes. 
+Bake uncovered at 350 F for 40-50 minutes.
+Serve these with baked ham, oven roasted turkey, or flank steak.', 'https://tastesbetterfromscratch.com/wp-content/uploads/2016/12/Funeral-Potatoes-5-400x400.jpg')
+
+INSERT INTO recipes (recipe_name, recipe_ingredients, recipe_instruction, recipe_img )
+VALUES ('Muddy Buddys', '9 cups rice chex cereal,
+1/2 cup creamy peanut butter,
+1 cup milk or semisweet chocolate chips (I like Guittard or Ghirardelli),
+4 tablespoons unsalted butter,
+1 teaspoon vanilla extract,
+1/2 teaspoon fine sea salt,
+1 and 1/2 cups powdered sugar', 'Into a large bowl, measure cereal; set aside.
+In a large microwave safe bowl, combine the peanut butter, chocolate chips, and butter. Microwave in bursts of 15 seconds, stirring in between each burst for 15 seconds until the mixture is melted and smooth. Add in the vanilla and salt. Pour over the prepared cereal. Stir well until the cereal is evenly coated.
+Pour half of the cereal mixture into a gallon sized ziplock bag and pour half of the powdered sugar over it. Seal and shake until the cereal is evenly coated. Repeat with the other half of the cereal and powdered sugar in the same or a different bag. Shake until all the cereal is well coated!
+Remove into a large bowl and enjoy! If desired stir in a fun addition such as mini M&Ms or mini chocolate chips. 
+Store leftover muddy buddies in an airtight container at room temperature.', 'https://www.chelseasmessyapron.com/wp-content/uploads/2014/04/Muddy-Buddies-2.jpg.webp')
+
+INSERT INTO recipes (recipe_name, recipe_ingredients, recipe_instruction, recipe_img )
+VALUES ('Classic Chili', '1 tablespoon olive oil,
+1 medium yellow onion -diced,
+1 pound 90% lean ground beef,
+2 1/2 tablespoons chili powder,
+2 tablespoons ground cumin,
+2 tablespoons granulated sugar,
+2 tablespoons tomato paste,
+1 tablespoon garlic powder,
+1 1/2 teaspoons salt,
+1/2 teaspoon ground black pepper,
+1/4 teaspoon ground cayenne pepper -optional,
+1 1/2 cups beef broth,
+1 (15 oz.) can petite diced tomatoes,
+1 (16 oz.) can red kidney beans, drained and rinsed,
+1 (8 oz.) can tomato sauce', 'Add the olive oil to a large soup pot and place it over medium-high heat for two minutes. Add the onion. Cook for 5 minutes, stirring occasionally.
+Add the ground beef to the pot. Break it apart with a wooden spoon. Cook for 6-7 minutes, until the beef is browned, stirring occasionally.
+Add the chili powder, cumin, sugar, tomato paste, garlic powder, salt, pepper, and optional cayenne. Stir until well combined.
+Add the broth, diced tomatoes (with their juice), drained beans, and tomato sauce. Stir well.
+Bring the liquid to a low boil. Then, reduce the heat (low to medium-low) to gently simmer the chili, uncovered, for 20-25 minutes, stirring occasionally.
+Remove the pot from the heat. Let the chili rest for 5-10 minutes before serving', 'https://www.thewholesomedish.com/wp-content/uploads/2018/05/600-X-900.jpg')
+
+INSERT INTO recipes (recipe_name, recipe_ingredients, recipe_instruction, recipe_img )
+VALUES ('Deviled Eggs', '6 large eggs,
+3 tbsp mayonnaise,
+1 tsp Dijon mustard,
+1 tsp apple cider vinegar,
+salt and pepper- to taste,
+paprika- for garnish', 'Bring a pot of water to a boil. Reduce the heat to low (or off) to ensure the water is no longer boiling or has bubbles and use a skimmer to place the eggs in the water. Then increase the heat back to high and set a timer for 14 minutes.
+While the eggs are boiling prepare an ice water bath and set aside.
+After 14 minutes, remove the eggs from the water and place in the ice water bath.
+Once the eggs have cooled completely, peel them and slice in half lengthwise. Remove the yolk to a small bowl with a spoon and place the egg whites on a plate.
+Mash the yolks with a fork and add the mayonnaise, mustard, vinegar, salt and pepper. Stir everything together.
+Use a spoon to add a portion of the deviled egg mixture back into the hole of each egg white. Sprinkle on paprika for garnish.', 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2018/09/Deviled-Eggs-2-1.jpg')

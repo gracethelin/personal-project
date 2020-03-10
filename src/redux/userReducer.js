@@ -1,31 +1,34 @@
 import axios from 'axios'
 
 const initialState = {
+    user: {},
     email: '',
     profilePic: '',
     userId: 0
     
 }
 
+
+
 const CHECK_USER = "CHECK_USER"
 const LOGIN = "LOGIN"
 const LOGOUT = "LOGOUT"
 const REGISTER = "REGISTER"
 
-export function login(email, password) {
+export function login(email, userId) {
 
     let action = {
         type: LOGIN,
-        payload: {email, password}
+        payload: {email, userId}
     }
 
     return action
 }
 
-export function checkUser() {
+export function checkUser(userId) {
     let action = {
         type: CHECK_USER,
-        payload: axios.get('/api/check')
+        payload: {userId}
     }
 
     return action
@@ -58,12 +61,10 @@ export default function userReducer(state = initialState, action) {
         case CHECK_USER + '_REJECTED':
             console.log('CHECK_USER REJECTED')
             return {...state, loading: false}
-        case LOGIN + '_PENDING':
-            return {...state, loading: true, error: false}
-        case LOGIN + '_FULFILLED':
-            return {...state, loading: false, user: action.payload.data}
-        case LOGIN + '_REJECTED':
-            return {...state, loading: false, error: true, errorMessage: action.payload.response.data}
+        
+        case LOGIN:
+            return {...state, loading: false, user: action.payload}
+    
         case LOGOUT + '_PENDING':
             return {...state, loading: true, error: false}
         case LOGOUT + '_FULFILLED':

@@ -1,13 +1,20 @@
 module.exports = {
 
-    randomRecipes: (req, res) => {
-        const recipes =  []
+    randomRecipes: async (req, res) => {
+        const db = req.app.get('db')
+        const random = await db.check_recipe()
+        const index = Math.floor(Math.random() * 11)
+        
+        res.status(200).send(random[index])
 
-        // const rand1 = Math.ceil(Math.random() * 151),
-        // const rand2 = Math.ceil(Math.random() * 151),
-        // const rand3 = Math.ceil(Math.random() * 151),
+    },
 
-
+    saveRandomRecipe:  async (req, res) => {
+        const db = req.app.get('db')
+        const {recipe_id, userId} = req.body
+        console.log(recipe_id, userId)
+        await db.add_recipe([recipe_id, userId]).then(result => {
+            res.status(200).send(result)
+        })
     }
-    
 }

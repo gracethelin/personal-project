@@ -50,5 +50,7 @@ app.get(`/api/toBuy`, ctrl.getIngredients)
 app.put(`/api/toBuy/:id`, ctrl.editIngredient)
 
 app.get(`/api/random`, ctrlRandom.randomRecipes)
+app.post(`/api/saveRandomRecipe`, ctrlRandom.saveRandomRecipe)
 
 app.get(`/api/signs3`, ctrl.amazonS3)
+app.get(`/api/getAllSavedRecipes`, ctrl.getAllSavedRecipes)

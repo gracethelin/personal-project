@@ -56,6 +56,8 @@ module.exports = {
     },
 
     amazonS3: (req, res) => {
+        // const db = req.app.get('db')
+        // db.update_img()
         aws.config = {
             region: 'us-west-1',
             accessKeyId: AWS_ACCESS_KEY_ID,
@@ -85,5 +87,14 @@ module.exports = {
         
             return res.send(returnData);
           });
+    },
+
+    getAllSavedRecipes:  async (req, res) => {
+        const db = req.app.get('db')
+        const {userId} = req.body
+        console.log(userId)
+        await db.get_join([userId]).then(recipes => {
+            res.status(200).send(recipes)
+        }).catch(err => console.log(err))
     }
 }
