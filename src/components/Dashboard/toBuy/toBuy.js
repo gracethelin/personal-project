@@ -75,7 +75,6 @@ class ToBuy extends Component {
 
 
     deleteIngredient = (id) => {
-        console.log('hit delete')
         axios.delete(`/api/toBuy/${id}`).then(res => {
             this.setState({
                 ingredients: res.data

@@ -3,7 +3,7 @@ module.exports = {
     randomRecipes: async (req, res) => {
         const db = req.app.get('db')
         const random = await db.check_recipe()
-        const index = Math.floor(Math.random() * 11)
+        const index = Math.floor(Math.random() * 17)
         
         res.status(200).send(random[index])
 

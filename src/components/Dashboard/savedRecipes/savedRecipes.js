@@ -17,16 +17,38 @@ class savedRecipes extends Component {
     };
   }
 
-  componentDidUpdate = (oldProps) => {
+  componentDidMount = () => {
+    console.log(this.props.user)
     const {userId} = this.props.user
-    if(oldProps !== this.props || userId){
-    axios.get(`/api/getAllSavedRecipes`, {userId}).then(res => {
+    axios.post(`/api/getAllSavedRecipes`, {userId}).then(res => {
+      console.log(res)
+      this.setState({
+        savedRecipes: res.data
+      })
+    })}
+
+  
+  componentDidUpdate = (oldProps) => {
+    console.log(oldProps, this.props)
+    console.log('hit component did update')
+    const {userId} = this.props.user
+    if(this.state.savedRecipes === []){
+    axios.post(`/api/getAllSavedRecipes`, {userId}).then(res => {
       console.log(res)
       this.setState({
         savedRecipes: res.data
       })
       
     })}
+  }
+
+  deleteRecipe = (id) => {
+    console.log(`hit delete`)
+    axios.delete(`/api/deleteSavedRecipe/${id}`).then(res => {
+      this.setState({
+        savedRecipes: res.data
+      })
+    })
   }
 
   getSignedRequest = ([file]) => {
@@ -83,10 +105,10 @@ class savedRecipes extends Component {
     const { url, isUploading } = this.state;
     return (
       <div className="App">
-      <h1>{this.props.user.email}'s Saved Recipes</h1>
+      {/* <h1>{this.props.user.email}'s Saved Recipes</h1>
       {this.state.savedRecipes.map(e => {
-       return  <div>{e.recipe_name}</div>
-      })}
+       return  <div>{e.recipe_name}</div> */}
+      {/* })} */}
         <h1>{url}</h1>
         <img src={url} alt="" width="450px" />
 
@@ -111,6 +133,12 @@ class savedRecipes extends Component {
         >
           {isUploading ? <GridLoader /> : <p>Click to Upload Profile Picture</p>}
         </Dropzone>
+
+        <h1>{this.props.user.email}'s Saved Recipes</h1>
+      {this.state.savedRecipes.map(e => {
+       return  <div>{e.recipe_name}
+       <button onClick={() => this.deleteRecipe(e.recipe_id)}>Delete</button></div>
+      })}
       </div>
     );
   }

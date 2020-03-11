@@ -10,25 +10,38 @@ class Dashboard extends Component {
 
         this.state = {
             search: '',
-            listItems: []
+            listItems: [],
+            searchedRecipes: []
         }
     }
 
     isSearching = (e) => {
-        
         this.setState({
             search: e.target.value
-        })
-
+        })}
+        componentDidMount(){
         axios.get(`/api/recipesSearch`)
             .then(res => {
-                console.log('res', res)
                 this.setState({
                     listItems: res.data
                 })
             }).catch(err =>
                 console.log('err', err)
-            )
+         )
+    }
+
+    saveRecipe = (recipe_id) => {
+        console.log(`hit save recipe`)
+        const { userId } = this.props.user
+        console.log(userId)
+        console.log(recipe_id)
+
+        axios.post(`/api/saveSearchedRecipe`, {recipe_id, userId}).then(res => {
+            console.log(`hit .then in save recipe`)
+            this.setState({
+                listItems: res.data
+            })
+        })
     }
 
     
@@ -44,17 +57,21 @@ class Dashboard extends Component {
                     onChange={(e) => this.isSearching(e)}
                 />
                 <div>
-                    
-                    {this.state.listItems.map(e => {
+                    {this.state.listItems.filter(e => {
+                         console.log(e.recipe_name)
+                         return e.recipe_name.toLowerCase().includes(this.state.search.toLowerCase())
+                           
+                      })
+                      .map(e => {
                         return <div className='displayed-recipes'
                         key={e.recipe_id}
-                        >
-                            
+                        >     
                              {e.recipe_name}
-                             <button>Save</button>
+                             <button onClick={() => this.saveRecipe(e.recipe_id)}>Save</button>
                         </div>   
                         
-                    })}
+                    })
+                    }
 
                 </div>
              
@@ -66,9 +83,9 @@ class Dashboard extends Component {
 
 
 const mapStateToProps = reduxState => {
-    const { ingredient } = reduxState
-    return { ingredient }
+    const { user } = reduxState
+    return { user }
 }
 
 
-export default connect(mapStateToProps, { toBuy })(Dashboard)
+export default connect(mapStateToProps)(Dashboard)
