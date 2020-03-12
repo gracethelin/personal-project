@@ -45,9 +45,10 @@ app.get(`/api/recipesSearch`, ctrl.search)
 app.post(`/api/recipes`, ctrl.addRecipe)
 app.post(`/api/saveSearchedRecipe`, ctrl.saveSearchedRecipe)
 
+
 app.post(`/api/toBuy`, ctrl.addIngredient)
-app.delete(`/api/toBuy/:id`, ctrl.deleteProduct)
-app.get(`/api/toBuy`, ctrl.getIngredients)
+app.delete(`/api/toBuy/:id/:userId`, ctrl.deleteProduct)
+app.post(`/api/toBuy`, ctrl.getIngredients)
 app.put(`/api/toBuy/:id`, ctrl.editIngredient)
 
 app.get(`/api/random`, ctrlRandom.randomRecipes)
@@ -55,4 +56,4 @@ app.post(`/api/saveRandomRecipe`, ctrlRandom.saveRandomRecipe)
 
 app.get(`/api/signs3`, ctrl.amazonS3)
 app.post(`/api/getAllSavedRecipes`, ctrl.getAllSavedRecipes)
-app.delete(`/api/deleteSavedRecipe/:id`,ctrl.deleteSavedRecipe )
+app.delete(`/api/deleteSavedRecipe/:id/:userId`,ctrl.deleteSavedRecipe )

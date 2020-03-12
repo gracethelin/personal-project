@@ -32,7 +32,7 @@ class savedRecipes extends Component {
     console.log(oldProps, this.props)
     console.log('hit component did update')
     const {userId} = this.props.user
-    if(this.state.savedRecipes === []){
+    if(!this.state.savedRecipes.length){
     axios.post(`/api/getAllSavedRecipes`, {userId}).then(res => {
       console.log(res)
       this.setState({
@@ -44,7 +44,9 @@ class savedRecipes extends Component {
 
   deleteRecipe = (id) => {
     console.log(`hit delete`)
-    axios.delete(`/api/deleteSavedRecipe/${id}`).then(res => {
+    console.log(id)
+
+    axios.delete(`/api/deleteSavedRecipe/${id}/${this.props.user.userId}`).then(res => {
       this.setState({
         savedRecipes: res.data
       })
@@ -101,15 +103,11 @@ class savedRecipes extends Component {
 
   render() {
     console.log(this.props)
-    console.log(this.state.savedRecipes)
+    console.log(this.state.savedRecipes.length)
     const { url, isUploading } = this.state;
     return (
       <div className="App">
-      {/* <h1>{this.props.user.email}'s Saved Recipes</h1>
-      {this.state.savedRecipes.map(e => {
-       return  <div>{e.recipe_name}</div> */}
-      {/* })} */}
-        <h1>{url}</h1>
+        {/* <h1>{url}</h1> */}
         <img src={url} alt="" width="450px" />
 
         <Dropzone
@@ -136,7 +134,11 @@ class savedRecipes extends Component {
 
         <h1>{this.props.user.email}'s Saved Recipes</h1>
       {this.state.savedRecipes.map(e => {
-       return  <div>{e.recipe_name}
+       return  <div
+          key={e.id}>
+         {e.recipe_name}
+         {/* {e.recipe_ingredients}
+         {e.recipe_img} */}
        <button onClick={() => this.deleteRecipe(e.recipe_id)}>Delete</button></div>
       })}
       </div>

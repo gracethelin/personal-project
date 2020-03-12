@@ -18,8 +18,9 @@ class Dashboard extends Component {
     isSearching = (e) => {
         this.setState({
             search: e.target.value
-        })}
-        componentDidMount(){
+        })
+    }
+    componentDidMount() {
         axios.get(`/api/recipesSearch`)
             .then(res => {
                 this.setState({
@@ -27,7 +28,7 @@ class Dashboard extends Component {
                 })
             }).catch(err =>
                 console.log('err', err)
-         )
+            )
     }
 
     saveRecipe = (recipe_id) => {
@@ -36,7 +37,7 @@ class Dashboard extends Component {
         console.log(userId)
         console.log(recipe_id)
 
-        axios.post(`/api/saveSearchedRecipe`, {recipe_id, userId}).then(res => {
+        axios.post(`/api/saveSearchedRecipe`, { recipe_id, userId }).then(res => {
             console.log(`hit .then in save recipe`)
             this.setState({
                 listItems: res.data
@@ -44,10 +45,29 @@ class Dashboard extends Component {
         })
     }
 
-    
+    componentDidUpdate = (oldProps) => {
+        console.log(oldProps, this.props)
+        console.log('hit component did update')
+        console.log()
+        if (!this.state.listItems.length) {
+            axios.get(`/api/recipesSearch`).then(res => {
+                this.setState({
+                    listItems: res.data
+                })
+            }).catch(err =>
+                console.log('err', err))
+        }
+    }
+
+    clearSearch = () => {
+        this.setState({
+            search: '',
+            listItems: [],
+            searchedRecipes: []
+        })
+    }
 
     render() {
-        
         return (
             <div>
                 <h1>Dashboard</h1>
@@ -56,26 +76,25 @@ class Dashboard extends Component {
                     placeholder='Search Recipe'
                     onChange={(e) => this.isSearching(e)}
                 />
+                <button onClick={() => this.clearSearch()}>Clear</button>
                 <div>
                     {this.state.listItems.filter(e => {
-                         console.log(e.recipe_name)
-                         return e.recipe_name.toLowerCase().includes(this.state.search.toLowerCase())
-                           
-                      })
-                      .map(e => {
+                        console.log(e)
+                        if (e.recipe_name.toLowerCase().includes(this.state.search.toLowerCase())) {
+                            return e
+                        } else if (e.recipe_ingredients.toLowerCase().includes(this.state.search.toLowerCase())) { return e}
+                    }).map(e => {
                         return <div className='displayed-recipes'
-                        key={e.recipe_id}
-                        >     
-                             {e.recipe_name}
-                             <button onClick={() => this.saveRecipe(e.recipe_id)}>Save</button>
-                        </div>   
-                        
+                            key={e.recipe_id}>
+                            <h1>{e.recipe_name}</h1>
+                            {e.recipe_ingredients}
+                            <button onClick={() => this.saveRecipe(e.recipe_id)}>Save</button>
+                        </div>
                     })
                     }
-
                 </div>
-             
-            
+
+
             </div>
         )
     }
@@ -89,3 +108,4 @@ const mapStateToProps = reduxState => {
 
 
 export default connect(mapStateToProps)(Dashboard)
+

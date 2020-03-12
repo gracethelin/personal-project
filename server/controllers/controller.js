@@ -21,24 +21,25 @@ module.exports = {
 
     addIngredient: (req, res) => {
         const db = req.app.get('db')
-        const { ingredient } = req.body
-        db.add_ingredient([ingredient]).then(ingredients => {
+        const { ingredient, userId } = req.body
+        db.add_ingredient([ingredient, userId]).then(ingredients => {
             res.status(200).send(ingredients)
         })
     },
 
     deleteProduct: (req, res) => {
         const db = req.app.get('db')
-        const { id } = req.params
-        console.log(id)
-        db.delete_product(id).then((ingredients) => {
+        const { id, userId } = req.params
+        console.log(req.params)
+        db.delete_product([+id, +userId]).then((ingredients) => {
             res.status(200).send(ingredients)
         })
     },
 
     getIngredients: async (req, res) => {
         const db = req.app.get('db')
-        await db.get_ingredients().then(ingredients => {
+        const { userId } = req.body
+        await db.get_ingredients(userId).then(ingredients => {
             res.status(200).send(ingredients)
         }).catch(err => res.status(500).send(err))
     },
@@ -46,7 +47,6 @@ module.exports = {
     editIngredient: (req, res) => {
         const db = req.app.get('db')
         const { ingredient } = req.body
-        console.log(req.body)
         const { id } = req.params
 
 
@@ -99,8 +99,9 @@ module.exports = {
 
     deleteSavedRecipe: async (req, res) => {
         const db = req.app.get('db')
-        const { id } = req.params
-        db.delete_saved_recipe(id).then((recipes) => {
+        const { id, userId } = req.params
+
+        db.delete_saved_recipe([id, userId]).then((recipes) => {
             res.status(200).send(recipes)
         }).catch(err => console.log(err))
     },

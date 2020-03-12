@@ -21,7 +21,8 @@ class ToBuy extends Component {
     }
 
     getIngredients = () => {
-        axios.get(`/api/toBuy`).then(res => {
+        const {userId} = this.props.user
+        axios.post(`/api/toBuy`, {userId}).then(res => {
             this.setState({
                 ingredients: res.data
             })
@@ -29,7 +30,8 @@ class ToBuy extends Component {
     }
 
     addIngredient = (ingredient) => {
-        axios.post(`/api/toBuy`, { ingredient }).then(res => {
+        const { userId } = this.props.user
+        axios.post(`/api/toBuy`, { ingredient, userId }).then(res => {
             this.setState({
                 ingredients: res.data
             })
@@ -75,7 +77,8 @@ class ToBuy extends Component {
 
 
     deleteIngredient = (id) => {
-        axios.delete(`/api/toBuy/${id}`).then(res => {
+        const {userId} = this.props.user
+        axios.delete(`/api/toBuy/${id}/${userId}`).then(res => {
             this.setState({
                 ingredients: res.data
             })
@@ -155,8 +158,8 @@ class ToBuy extends Component {
 }
 
 const mapStateToProps = reduxState => {
-    const { ingredient } = reduxState
-    return { ingredient }
+    const { user } = reduxState
+    return { user }
 }
 
 
