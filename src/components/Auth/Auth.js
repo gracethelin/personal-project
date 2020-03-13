@@ -58,6 +58,7 @@ class Auth extends Component {
                     <input className="login"
                         placeholder="Enter Email"
                         name='email'
+                        type="email"
                         onChange={this.handleChange}
 
                     />

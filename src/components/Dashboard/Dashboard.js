@@ -79,7 +79,6 @@ class Dashboard extends Component {
                 <button onClick={() => this.clearSearch()}>Clear</button>
                 <div>
                     {this.state.listItems.filter(e => {
-                        console.log(e)
                         if (e.recipe_name.toLowerCase().includes(this.state.search.toLowerCase())) {
                             return e
                         } else if (e.recipe_ingredients.toLowerCase().includes(this.state.search.toLowerCase())) { return e}

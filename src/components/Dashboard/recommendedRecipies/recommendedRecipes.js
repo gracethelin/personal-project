@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 
 function RecommendedRecipes(props) {
+    
     const [random, setRandom] = useState([])
 
     useEffect(() => {
@@ -14,6 +15,7 @@ function RecommendedRecipes(props) {
     const saveRecipe = () => {
         const { recipe_id } = random
         const { userId } = props.user
+        console.log(props.user)
         axios.post(`/api/saveRandomRecipe`, { recipe_id, userId })
        props.history.push("/savedRecipes")
     }

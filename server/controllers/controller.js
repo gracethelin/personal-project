@@ -30,7 +30,6 @@ module.exports = {
     deleteProduct: (req, res) => {
         const db = req.app.get('db')
         const { id, userId } = req.params
-        console.log(req.params)
         db.delete_product([+id, +userId]).then((ingredients) => {
             res.status(200).send(ingredients)
         })
