@@ -114,32 +114,40 @@ class savedRecipes extends Component {
           onDropAccepted={this.getSignedRequest}
           style={{
             position: 'relative',
-            width: 200,
-            height: 200,
-            borderWidth: 7,
-            marginTop: 100,
-            borderColor: 'rgb(102, 102, 102)',
+            width: 100,
+            height: 100,
+            borderWidth: 1,
+            borderColor: '#9C9C9C',
+            backgroundColor: '#E8E8E8',
             borderStyle: 'dashed',
             borderRadius: 120,
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             fontSize: 28,
+            cursor: 'pointer'
           }}
           accept="image/*"
           multiple={false}
         >
-          {isUploading ? <GridLoader /> : <p>Click to Upload Profile Picture</p>}
+          {isUploading ? <GridLoader /> : <p style={{fontSize: 16, color: '#9C9C9C', textAlign: 'center'}}>Upload Photo</p>}
         </Dropzone>
 
         <h1>{this.props.user.email}'s Saved Recipes</h1>
       {this.state.savedRecipes.map(e => {
-       return  <div
-          key={e.id}>
-         {e.recipe_name}
-         {/* {e.recipe_ingredients}
-         {e.recipe_img} */}
-       <button onClick={() => this.deleteRecipe(e.recipe_id)}>Delete</button></div>
+       return  <div className='displayed-recipes'
+       key={e.recipe_id}>
+       <div className="recipe-header">
+           <h1>{e.recipe_name}</h1>
+           <button className="edit-button" onClick={() => this.deleteRecipe(e.recipe_id)}>Delete</button>    
+       </div>
+       <div className="recipe-info">                                    
+           <h3>Ingredients</h3>
+           {e.recipe_ingredients}
+           <h3>Instructions</h3>
+           {e.recipe_instruction}
+       </div>                                                
+   </div>         
       })}
       </div>
     );

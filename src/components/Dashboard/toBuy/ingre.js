@@ -50,13 +50,13 @@ export default class Ingre extends Component {
 
         return this.state.isEditing ?
             (
-                <div>
-                    <input onChange={e => this.inputIngredient(e.target.value)}
+                <div style={{marginBottom:10}}>
+                    <input style={{marginRight: 10}} onChange={e => this.inputIngredient(e.target.value)}
                        placeholder =  {this.props.e.list_name} />
-                    <button onClick={() => { this.props.editIngredient(this.props.e.list_id, this.state.userInput) 
+                    <button className="edit-button" onClick={() => { this.props.editIngredient(this.props.e.list_id, this.state.userInput) 
                     this.toggleHandle()
                     }}>Save Ingredient</button>
-                    <button onClick={() => {this.props.cancelChange()}}>Cancel</button>
+                    <button className="edit-button" onClick={() => {this.props.cancelChange()}}>Cancel</button>
                     </div>
             ) : (
                 <li key={this.props.e.list_id}>

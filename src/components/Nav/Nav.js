@@ -19,11 +19,8 @@ class Nav extends Component {
 
     render() {
         return (
-            <div>
-                {/* <img 
-                className='dropdownImage'
-                src='https://cdn.dribbble.com/users/146798/screenshots/6218681/doughnut-dribbble1_4x.jpg' onClick={this.handleClick} /> */}
-
+            <div className="menu-container">
+                <button className="edit-button" id="menu-button" onClick={this.handleClick}>Toggle Menu</button>
                 {this.state.dropdown ?
                     (
                         <div className="nav-links">

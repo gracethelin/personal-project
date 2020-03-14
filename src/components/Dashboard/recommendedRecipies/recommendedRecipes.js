@@ -25,11 +25,17 @@ function RecommendedRecipes(props) {
         <div>
             <div>
                 <h1>Recipes based on you</h1>
-                <p>{random.recipe_name}</p>
-                <div>{random.recipe_ingredients}</div>
-                <div>{random.recipe_instruction}</div>
-                <img src={random.recipe_img} />
-                <button onClick={() => saveRecipe()}>Save</button>
+                <div className='displayed-recipes'
+                        key={random.recipe_id}>
+                        <div className="recipe-header">
+                            <h1>{random.recipe_name}</h1>
+                            <button className="edit-button" onClick={() => saveRecipe(random.recipe_id)}>Save</button>
+                        </div>
+                        <div className="recipe-info">                                    
+                            <h3>Ingredients</h3>
+                            {random.recipe_ingredients}
+                        </div>                                                
+                    </div>  
             </div>
         </div>
     )

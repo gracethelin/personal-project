@@ -72,11 +72,12 @@ class Dashboard extends Component {
             <div>
                 <h1>Dashboard</h1>
                 <input
+                    style={{marginRight: 10}}
                     className="search"
                     placeholder='Search Recipe'
                     onChange={(e) => this.isSearching(e)}
                 />
-                <button onClick={() => this.clearSearch()}>Clear</button>
+                <button className="edit-button" onClick={() => this.clearSearch()}>Clear</button>
                 <div>
                     {this.state.listItems.filter(e => {
                         if (e.recipe_name.toLowerCase().includes(this.state.search.toLowerCase())) {
@@ -85,10 +86,15 @@ class Dashboard extends Component {
                     }).map(e => {
                         return <div className='displayed-recipes'
                             key={e.recipe_id}>
-                            <h1>{e.recipe_name}</h1>
-                            {e.recipe_ingredients}
-                            <button onClick={() => this.saveRecipe(e.recipe_id)}>Save</button>
-                        </div>
+                            <div className="recipe-header">
+                                <h1>{e.recipe_name}</h1>
+                                <button className="edit-button" onClick={() => this.saveRecipe(e.recipe_id)}>Save</button>
+                            </div>
+                            <div className="recipe-info">                                    
+                                <h3>Ingredients</h3>
+                                {e.recipe_ingredients}
+                            </div>                                                
+                        </div>                        
                     })
                     }
                 </div>
