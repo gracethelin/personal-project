@@ -11,8 +11,8 @@ export default (
     <Switch>
         <Route exact path='/' component={Auth}/>
         <Route path ='/Dashboard' component={Dashboard} />
-        <Route path='/savedRecipes' component={SavedRecipes}/>
-        <Route path='/recommended' component={RecommendedRecipes} />
-        <Route path='/toBuy' component={ToBuy} />
+        <Route path='/SavedRecipes' component={SavedRecipes}/>
+        <Route path='/Recommended' component={RecommendedRecipes} />
+        <Route path='/ToBuy' component={ToBuy} />
     </Switch>
 )
