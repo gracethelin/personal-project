@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import savedRecipes from '../Dashboard/savedRecipes/savedRecipes'
+import SavedRecipes from '../Dashboard/savedRecipes/SavedRecipes'
 
 class Nav extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class Nav extends Component {
                     (
                         <div className="nav-links">
                             <Link to='/Dashboard'><button>Home</button></Link>
-                            <Link to='/savedRecipes' ><button>My Saved Recipes</button></Link>
+                            <Link to='/SavedRecipes'><button>My Saved Recipes</button></Link>
                             <Link to='/recommended'><button>Recommended Recipes</button></Link>
                             <Link to='/toBuy'><button>To Buy</button></Link>
                             <Link to='/'><button>Logout</button></Link>

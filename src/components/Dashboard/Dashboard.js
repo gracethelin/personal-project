@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { connect } from "react-redux"
 import { toBuy } from '../../redux/toBuyReducer'
-import SavedRecipes from './savedRecipes/savedRecipes'
+import SavedRecipes from './savedRecipes/SavedRecipes'
 
 class Dashboard extends Component {
     constructor(props) {
