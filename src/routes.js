@@ -3,7 +3,6 @@ import {Switch, Route} from 'react-router-dom'
 
 import Auth from './components/Auth/Auth'
 import Dashboard from './components/Dashboard/Dashboard'
-import Nav from './components/Nav/Nav'
 import SavedRecipes from './components/Dashboard/savedRecipes/SavedRecipes'
 import RecommendedRecipes from './components/Dashboard/recommendedRecipies/RecommendedRecipes'
 import ToBuy from './components/Dashboard/toBuy/ToBuy'

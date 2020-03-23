@@ -160,4 +160,4 @@ const mapStateToProps = reduxState => {
   return {user}
 };
     
-export default connect(mapStateToProps)(savedRecipes)
+export default connect(mapStateToProps)(SavedRecipes)

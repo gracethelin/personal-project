@@ -15,8 +15,6 @@ const express = require("express"),
     ctrlRandom = require(`./controllers/randomRecipes`)
  
 const app = express();
-
-
 app.use(express.json());
 app.use( express.static( `${__dirname}/../build` ) );
 
