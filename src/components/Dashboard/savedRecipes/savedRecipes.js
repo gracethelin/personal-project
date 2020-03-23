@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
+import React, { Component } from './node_modules/react';
+import { connect } from "./node_modules/react-redux";
 
 
-import axios from 'axios';
-import { v4 as randomString } from 'uuid';
-import Dropzone from 'react-dropzone';
-import { GridLoader } from 'react-spinners';
+import axios from './node_modules/axios';
+import { v4 as randomString } from './node_modules/uuid';
+import Dropzone from './node_modules/react-dropzone';
+import { GridLoader } from './node_modules/react-spinners';
 
 class SavedRecipes extends Component {
   constructor() {

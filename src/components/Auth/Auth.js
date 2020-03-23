@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from './node_modules/react'
+import axios from './node_modules/axios'
 import { login, register } from '../../redux/userReducer'
 import Dashboard from '../Dashboard/Dashboard'
-import { connect } from 'react-redux'
+import { connect } from './node_modules/react-redux'
 
 
 class Auth extends Component {

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from './node_modules/react'
+import axios from './node_modules/axios'
 import Dashboard from '../Dashboard'
-import { connect } from "react-redux"
+import { connect } from "./node_modules/react-redux"
 import { toBuy } from '../../../redux/toBuyReducer'
-import Ingre from './ingre'
+import Ingre from './Ingre'
 
 class ToBuy extends Component {
     constructor(props) {

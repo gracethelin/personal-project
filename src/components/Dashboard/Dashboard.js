@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { connect } from "react-redux"
+import React, { Component } from './node_modules/react'
+import axios from './node_modules/axios'
+import { connect } from "./node_modules/react-redux"
 import { toBuy } from '../../redux/toBuyReducer'
-import SavedRecipes from './savedRecipes/SavedRecipes'
+import SavedRecipes from './SavedRecipes/savedRecipes'
 
 class Dashboard extends Component {
     constructor(props) {

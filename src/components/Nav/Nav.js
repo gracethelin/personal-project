@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import SavedRecipes from '../Dashboard/savedRecipes/SavedRecipes'
+import React, { Component } from './node_modules/react'
+import { Link } from './node_modules/react-router-dom';
+import SavedRecipes from '../Dashboard/SavedRecipes/savedRecipes'
 
 class Nav extends Component {
     constructor(props) {

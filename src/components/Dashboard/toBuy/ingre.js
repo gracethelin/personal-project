@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react'
+import React, { Component } from './node_modules/react'
 import ToBuy from './ToBuy'
 
 export default class Ingre extends Component {
