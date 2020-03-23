@@ -32,7 +32,7 @@ const sendEmail = (req, res) => {
             console.log(err)
             res.status(400).send('Error')
         } else {
-            res.status(200).send('!You Got Mail!')
+            res.status(200).send('You Got Mail!')
         }
     })
 }
