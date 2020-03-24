@@ -13,13 +13,13 @@ function Header(props) {
             alert(response.data)
         }).catch(err => console.log(err))
     }
-    
+
     return (
         <div className="header">
             <div className="container">
                 <div className="header-text">
-                    <h1>Grace's Neat Thing</h1>
-                    <p>A dorky little app made by a little dork.</p>
+                    <h1>Momma Ness's Recipes</h1>
+                    <p>All the needed recipes made by Momma Ness</p>
                 </div>
                 <Nav />
                 <button onClick={() => subscribeButton()}>Subscribe To Weekly Recipes</button>
