@@ -1,7 +1,6 @@
-import React, { Component } from './node_modules/react'
-import axios from './node_modules/axios'
-import Dashboard from '../Dashboard'
-import { connect } from "./node_modules/react-redux"
+import React, { Component } from 'react'
+import axios from 'axios'
+import { connect } from "react-redux"
 import { toBuy } from '../../../redux/toBuyReducer'
 import Ingre from './Ingre'
 
@@ -21,8 +20,8 @@ class ToBuy extends Component {
     }
 
     getIngredients = () => {
-        const {userId} = this.props.user
-        axios.post(`/api/toBuy`, {userId}).then(res => {
+        const { userId } = this.props.user
+        axios.post(`/api/toBuy`, { userId }).then(res => {
             this.setState({
                 ingredients: res.data
             })
@@ -39,7 +38,7 @@ class ToBuy extends Component {
     }
 
     inputIngredient = (value) => {
-        
+
         this.setState({
             userInput: value
         })
@@ -47,10 +46,10 @@ class ToBuy extends Component {
     }
 
     cancelChange = () => {
-      this.setState({
-          userInput: '', 
-          ingredients: []
-      })  
+        this.setState({
+            userInput: '',
+            ingredients: []
+        })
     }
 
     editIngredient = (id, newName) => {
@@ -77,7 +76,7 @@ class ToBuy extends Component {
 
 
     deleteIngredient = (id) => {
-        const {userId} = this.props.user
+        const { userId } = this.props.user
         axios.delete(`/api/toBuy/${id}/${userId}`).then(res => {
             this.setState({
                 ingredients: res.data
@@ -99,7 +98,11 @@ class ToBuy extends Component {
                             placeholder='Enter Ingredient'
                             value={this.state.userInput}
                             onChange={e => this.inputIngredient(e.target.value)}
-                        /><button className="toDoButton" onClick={() => { this.addIngredient(this.state.userInput) }}><p>+</p></button>
+                        />
+                        <button className="toDoButton" onClick={(e) => {
+                            e.stopPropagation()
+                            this.addIngredient(this.state.userInput)
+                        }}><p>+</p></button>
                     </div>
                 </ul>
 
@@ -121,15 +124,15 @@ class ToBuy extends Component {
 
                 <ul>
                     {this.state.ingredients.map(e => {
-                       
+
                         return <Ingre
                             key={e.list_id}
-                            ingredients = {this.state.ingredients}
+                            ingredients={this.state.ingredients}
                             editIngredient={this.editIngredient}
                             e={e}
                             deleteIngredient={this.deleteIngredient}
                             cancelChange={this.cancelChange}
-                        
+
                         />
                         //  (
                         //     <div>

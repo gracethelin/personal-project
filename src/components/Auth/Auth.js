@@ -1,8 +1,8 @@
-import React, { Component } from './node_modules/react'
-import axios from './node_modules/axios'
+import React, { Component } from 'react'
+import axios from 'axios'
 import { login, register } from '../../redux/userReducer'
 import Dashboard from '../Dashboard/Dashboard'
-import { connect } from './node_modules/react-redux'
+import { connect } from 'react-redux'
 
 
 class Auth extends Component {
@@ -23,10 +23,8 @@ class Auth extends Component {
     }
 
     login = () => {
-        console.log('hit login')
         const { email, password } = this.state
         axios.post(`/api/login`, { email, password }).then(res => {
-            console.log(".then login")
             const email = res.data.user_email
             const userId = res.data.user_id
             // const profilePic  = res.data.profilePic
@@ -41,7 +39,6 @@ class Auth extends Component {
  
 
     register = () => {
-        console.log(`hit register`)
         const { email, password } = this.state
         axios.post(`/api/register`, { email, password }).then((res) => {
             this.props.register(

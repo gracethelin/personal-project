@@ -1,8 +1,8 @@
-import React, { Component } from './node_modules/react'
-import axios from './node_modules/axios'
-import { connect } from "./node_modules/react-redux"
+import React, { Component } from 'react'
+import axios from 'axios'
+import { connect } from "react-redux"
 import { toBuy } from '../../redux/toBuyReducer'
-import SavedRecipes from './SavedRecipes/savedRecipes'
+import SavedRecipes from './SavedRecipes/SavedRecipes'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -32,13 +32,9 @@ class Dashboard extends Component {
     }
 
     saveRecipe = (recipe_id) => {
-        console.log(`hit save recipe`)
         const { userId } = this.props.user
-        console.log(userId)
-        console.log(recipe_id)
 
         axios.post(`/api/saveSearchedRecipe`, { recipe_id, userId }).then(res => {
-            console.log(`hit .then in save recipe`)
             this.setState({
                 listItems: res.data
             })
@@ -46,9 +42,6 @@ class Dashboard extends Component {
     }
 
     componentDidUpdate = (oldProps) => {
-        console.log(oldProps, this.props)
-        console.log('hit component did update')
-        console.log()
         if (!this.state.listItems.length) {
             axios.get(`/api/recipesSearch`).then(res => {
                 this.setState({

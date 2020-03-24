@@ -1,7 +1,7 @@
-import React, { Component } from './node_modules/react'
-import axios from './node_modules/axios'
-import { useState, useEffect } from './node_modules/react'
-import { connect } from "./node_modules/react-redux";
+import React, { Component } from 'react'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
+import { connect } from "react-redux";
 
 
 function RecommendedRecipes(props) {

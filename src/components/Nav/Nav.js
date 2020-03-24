@@ -1,6 +1,6 @@
-import React, { Component } from './node_modules/react'
-import { Link } from './node_modules/react-router-dom';
-import SavedRecipes from '../Dashboard/SavedRecipes/savedRecipes'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import SavedRecipes from '../Dashboard/SavedRecipes/SavedRecipes'
 
 class Nav extends Component {
     constructor(props) {
@@ -24,10 +24,22 @@ class Nav extends Component {
                 {this.state.dropdown ?
                     (
                         <div className="nav-links">
-                            <Link to='/Dashboard'><button>Home</button></Link>
-                            <Link to='/SavedRecipes'><button>My Saved Recipes</button></Link>
-                            <Link to='/recommended'><button>Recommended Recipes</button></Link>
-                            <Link to='/toBuy'><button>To Buy</button></Link>
+                            <Link to='/Dashboard'><button onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                            }}>Home</button></Link>
+                            <Link to='/SavedRecipes'><button onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                            }}>My Saved Recipes</button></Link>
+                            <Link to='/recommended'><button onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                            }}>Recommended Recipes</button></Link>
+                            <Link to='/toBuy'><button onClick={(e) => {
+                                e.preventDefault()
+                                e.stopPropagation()
+                            }}>To Buy</button></Link>
                             <Link to='/'><button>Logout</button></Link>
                         </div>
                     ) : (
