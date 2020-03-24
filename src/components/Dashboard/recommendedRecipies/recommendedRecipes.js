@@ -15,13 +15,11 @@ function RecommendedRecipes(props) {
     const saveRecipe = () => {
         const { recipe_id } = random
         const { userId } = props.user
-        console.log(props.user)
         axios.post(`/api/saveRandomRecipe`, { recipe_id, userId })
        props.history.push("/savedRecipes")
     }
-    console.log(props)
-    return (
 
+    return (
         <div>
             <div>
                 <h1>Recipes based on you</h1>

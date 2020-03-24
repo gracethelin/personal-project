@@ -9,14 +9,11 @@ function Header(props) {
     const [email, setEmail] = useState(props.user.email)
 
     const subscribeButton = () => {
-        console.log(email)
-        // const { email } = props.user
-        console.log(props.user)
         axios.post(`/api/send`, { email }).then((response) => {
-            console.log(response)
             alert(response.data)
         }).catch(err => console.log(err))
     }
+    
     return (
         <div className="header">
             <div className="container">
@@ -32,7 +29,6 @@ function Header(props) {
 }
 
 const mapStateToProps = reduxState => {
-    console.log(reduxState)
     const { user } = reduxState
     return { user }
 };

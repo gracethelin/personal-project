@@ -29,12 +29,9 @@ class SavedRecipes extends Component {
 
   
   componentDidUpdate = (oldProps) => {
-    console.log(oldProps, this.props)
-    console.log('hit component did update')
     const {userId} = this.props.user
     if(!this.state.savedRecipes.length){
     axios.post(`/api/getAllSavedRecipes`, {userId}).then(res => {
-      console.log(res)
       this.setState({
         savedRecipes: res.data
       })
@@ -43,9 +40,6 @@ class SavedRecipes extends Component {
   }
 
   deleteRecipe = (id) => {
-    console.log(`hit delete`)
-    console.log(id)
-
     axios.delete(`/api/deleteSavedRecipe/${id}/${this.props.user.userId}`).then(res => {
       this.setState({
         savedRecipes: res.data
@@ -102,8 +96,6 @@ class SavedRecipes extends Component {
   };
 
   render() {
-    console.log(this.props)
-    console.log(this.state.savedRecipes.length)
     const { url, isUploading } = this.state;
     return (
       <div className="App">
